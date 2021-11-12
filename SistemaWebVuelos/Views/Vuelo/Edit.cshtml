@@ -1,0 +1,38 @@
+﻿@model SistemaWebVuelos.Models.Vuelo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<body>
+    @using (Html.BeginForm("Edit", "Vuelo", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.Id)
+
+        <div>
+            @Html.LabelFor(model => model.Fecha)
+            @Html.EditorFor(model => model.Fecha)
+            @Html.ValidationMessageFor(model => model.Fecha)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Destino)
+            @Html.EditorFor(model => model.Destino)
+            @Html.ValidationMessageFor(model => model.Destino)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Origen)
+            @Html.EditorFor(model => model.Origen)
+            @Html.ValidationMessageFor(model => model.Origen)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Matricula)
+            @Html.EditorFor(model => model.Matricula)
+            @Html.ValidationMessageFor(model => model.Matricula)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    }
+    @Html.ActionLink("Volver a Index", "Index", "Vuelo")
+</body>

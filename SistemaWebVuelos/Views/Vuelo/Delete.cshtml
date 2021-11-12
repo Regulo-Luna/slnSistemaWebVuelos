@@ -1,0 +1,46 @@
+﻿@model SistemaWebVuelos.Models.Vuelo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<body>
+    <h2>Vuelo Delete</h2>
+    <p>Desea eliminar este Vuelo?</p>
+
+    @using (Html.BeginForm("Delete", "Vuelo", FormMethod.Post))
+    {
+        <fieldset>
+            <legend>Vuelo Detail</legend>
+
+
+            <div class="display">
+                <p> <b>@Html.DisplayNameFor(model => model.Id):</b> @Html.DisplayFor(model => model.Id)</p>
+            </div>
+
+            <div class="display">
+                <p> <b>@Html.DisplayNameFor(model => model.Fecha):</b> @Html.DisplayFor(model => model.Fecha)</p>
+            </div>
+
+            <div class="display">
+                <p> <b>@Html.DisplayNameFor(model => model.Destino):</b> @Html.DisplayFor(model => model.Destino)</p>
+            </div>
+
+            <div class="display">
+                <p> <b>@Html.DisplayNameFor(model => model.Origen):</b> @Html.DisplayFor(model => model.Origen)</p>
+            </div>
+
+            <div class="display">
+                <p> <b> @Html.DisplayNameFor(model => model.Matricula):</b> @Html.DisplayFor(model => model.Matricula)</p>
+            </div>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Delete" />
+        </p>
+    }
+    <p>
+        @Html.ActionLink("Volver a", "Index", "Vuelo")
+    </p>
+</body>

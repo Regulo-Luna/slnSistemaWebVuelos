@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SistemaWebVuelos.Models.Vuelo>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="displaybuscar">
+    @using (Html.BeginForm("BuscarPorDestino", "Vuelo", FormMethod.Get))
+    {
+        @Html.TextBox("Destino", null)
+
+        <input type="submit" value="Traer Por Destino" />
+    }
+</div>
+
+<div class="display">
+    <p>@Html.ActionLink("Crear nuevo vuelo", "Create", "Vuelo")</p>
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Fecha)</th>
+            <th>@Html.DisplayNameFor(model => model.Destino)</th>
+            <th>@Html.DisplayNameFor(model => model.Origen)</th>
+            <th>@Html.DisplayNameFor(model => model.Matricula)</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+                <td>@Html.DisplayFor(modelItem => item.Destino)</td>
+                <td>@Html.DisplayFor(modelItem => item.Origen)</td>
+                <td>@Html.DisplayFor(modelItem => item.Matricula)</td>
+                <td>
+                    @Html.ActionLink("Detalle", "Detail", new { id = item.Id })
+                </td>
+
+                <td>
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                </td>
+
+            </tr>
+        }
+    </table>
+    </div>
+
+
